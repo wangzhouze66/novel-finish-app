@@ -34,6 +34,27 @@ The current priority is:
 
 The UI is secondary. Do not expand the app UI for the current milestone. The core is multi-ending planning, style consistency, story continuity, and emotional core preservation.
 
+
+## Data Template Layer
+
+The `data_templates/` folder contains reusable structured containers for the *Dragon Raja / Long Zu* multi-ending experiment. These templates keep analysis, planning, route design, outline expansion, and review in separate documents so the project does not collapse into a one-shot continuation draft.
+
+Use the templates as the data layer for:
+
+- Corpus mapping and chapter summaries
+- Character cards and relationship maps
+- Worldbuilding rules, unresolved plotlines, and foreshadowing recovery
+- Author style notes that describe patterns without copying source prose
+- Ending routes, route comparison, and hybrid-route planning
+- Final volume, chapter, and scene outlines
+- Style consistency and story consistency reviews
+
+The intended workflow is:
+
+```text
+corpus map → story bible → author style bible → unresolved threads → multiple ending routes → comparison → hybrid route → final volume outline → chapter outline → scene outline → draft → review → rewrite
+```
+
 ## First milestone
 
 The first milestone is not full continuation prose.

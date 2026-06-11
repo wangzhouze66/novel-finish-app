@@ -24,6 +24,16 @@ This repository is for a private long-form novel ending lab and author-style con
 - Keep prompts reusable and explicit about the required input artifacts: corpus map, author style bible, story bible, unresolved thread list, and route goals.
 - If code is added later, separate app code, prompt assets, generated user data, and tests.
 
+
+## Data template workflow
+
+- Use the files in `data_templates/` as structured containers before drafting any continuation prose.
+- Start with corpus maps, chapter summaries, character cards, relationship maps, worldbuilding rules, unresolved threads, foreshadowing records, and author style notes before generating endings.
+- Avoid one-shot full continuation. Do not jump directly from source material to a complete final chapter or ending draft.
+- Separate analysis, route generation, comparison, hybridization, outlining, drafting, review, and rewriting as distinct workflow stages.
+- For ending work, create multiple route templates first, compare them with the ending comparison template, then produce a hybrid route before final volume, chapter, and scene outlining.
+- Run style consistency and story consistency reviews before rewriting or expanding draft prose.
+
 ## Multi-ending planning rules
 
 - Always propose multiple ending options before drafting.
