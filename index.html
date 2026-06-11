@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小说续写 MVP</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <p class="eyebrow">静态网页原型 · 无后端 · 无真实 AI API</p>
+      <h1>小说续写助手 MVP</h1>
+      <p class="intro">
+        粘贴你原创或已获授权的小说资料，整理人物、伏笔和结局方向，然后生成占位分析并保存草稿。
+      </p>
+      <p class="safety-note">
+        版权提醒：请只输入你拥有权利或已获授权的文本。此原型不会联网，也不会调用 AI 服务。
+      </p>
+    </div>
+  </header>
+
+  <main class="container app-layout">
+    <section class="card" aria-labelledby="source-heading">
+      <h2 id="source-heading">1. 输入故事资料</h2>
+      <p class="section-help">这些内容只保存在你的浏览器中，用来生成占位分析和导出草稿。</p>
+
+      <label for="storyInput">小说摘要或片段</label>
+      <textarea id="storyInput" rows="8" placeholder="示例：这是我原创故事的摘要……"></textarea>
+
+      <label for="characterNotes">人物笔记</label>
+      <textarea id="characterNotes" rows="5" placeholder="示例：林清：谨慎、擅长观察，想找到失踪的姐姐。"></textarea>
+
+      <label for="plotlines">未解决伏笔</label>
+      <textarea id="plotlines" rows="5" placeholder="示例：旧钟楼为何每晚响起？主角收到的无名信来自谁？"></textarea>
+
+      <label for="endingDirection">结局方向</label>
+      <select id="endingDirection">
+        <option value="温暖治愈">温暖治愈</option>
+        <option value="悬疑反转">悬疑反转</option>
+        <option value="开放式结局">开放式结局</option>
+        <option value="热血成长">热血成长</option>
+        <option value="苦乐参半">苦乐参半</option>
+      </select>
+
+      <div class="button-row">
+        <button type="button" id="analysisButton">生成占位分析</button>
+        <button type="button" class="secondary" id="clearButton">清空输入</button>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="analysis-heading">
+      <h2 id="analysis-heading">2. 占位分析结果</h2>
+      <p class="section-help">当前结果是规则生成的示例文案，方便之后替换为真实 AI API。</p>
+      <div id="analysisOutput" class="output-box" aria-live="polite">
+        <p>点击“生成占位分析”后，这里会显示中文分析建议。</p>
+      </div>
+    </section>
+
+    <section class="card wide-card" aria-labelledby="draft-heading">
+      <h2 id="draft-heading">3. 章节草稿</h2>
+      <p class="section-help">把你自己写的续写章节放在这里，可保存到浏览器或导出为 .txt 文件。</p>
+
+      <label for="chapterDraft">最终文本 / 章节草稿</label>
+      <textarea id="chapterDraft" rows="12" placeholder="在这里写下你的原创续写草稿……"></textarea>
+
+      <div class="button-row">
+        <button type="button" id="saveButton">保存草稿</button>
+        <button type="button" class="secondary" id="loadButton">读取草稿</button>
+        <button type="button" class="secondary" id="exportButton">导出 .txt</button>
+      </div>
+
+      <p id="statusMessage" class="status-message" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>下一步可以接入真实模型前，先完善提示词、版权边界和用户授权流程。</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
