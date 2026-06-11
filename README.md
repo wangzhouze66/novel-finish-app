@@ -55,6 +55,21 @@ Use this workspace to keep the experiment outline-first:
 
 Do not use this workspace to draft final chapters yet. Its current purpose is structured analysis, route planning, comparison, hybridization, and review preparation.
 
+## Corpus Ingestion Layer
+
+The `experiments/longzu_corpus/` folder is the evidence-first ingestion layer for the *Dragon Raja / Long Zu* experiment. High-fidelity style and plot continuation requires structured source material before route rewrites, sample scenes, final prose, or UI expansion.
+
+Use this layer to collect and organize:
+
+- Novel volume summaries and chapter summaries that preserve long-form structure, causality, emotional rhythm, and unresolved questions.
+- Character evidence grounded in scene context, action, dialogue tendency, emotional pattern, hidden desire or fear, relationship signal, contradiction, and ending implication.
+- Worldbuilding evidence for rules, concepts, factions, mythology, contradictions, gaps, and possible ending constraints.
+- Foreshadowing evidence that separates setup, possible meaning, payoff possibility, priority, and route relevance.
+- Author-style notes from essays, related writing, interviews, style observations, cultural core notes, and reader debates.
+- User interpretation notes that are clearly marked as preference or reading rather than source canon.
+
+The corpus layer should feed the story bible, author style bible, unresolved thread list, ending route candidates, hybrid route, final volume outline, chapter outline, and scene outline. If the corpus is still empty or mostly placeholder templates, existing Long Zu routes and outlines should be treated as provisional v0 scaffolding rather than final creative truth.
+
 ## Data Template Layer
 
 The `data_templates/` folder contains reusable structured containers for the *Dragon Raja / Long Zu* multi-ending experiment. These templates keep analysis, planning, route design, outline expansion, and review in separate documents so the project does not collapse into a one-shot continuation draft.

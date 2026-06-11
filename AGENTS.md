@@ -58,6 +58,12 @@ Before generating any ending route for the *Dragon Raja / Long Zu* experiment, f
 
 Do not draft final chapters yet. Use these files to preserve the outline-first workflow, user preferences, story continuity, unresolved thread tracking, and style consistency before route generation.
 
+## Corpus readiness rule
+
+Before drafting sample scenes for the *Dragon Raja / Long Zu* experiment, first check whether `experiments/longzu_corpus/` has been filled with source inventory, summaries, character evidence, worldbuilding evidence, foreshadowing evidence, author/style notes, reader debate notes, and user interpretation notes.
+
+If the corpus is still empty or mostly placeholder templates, treat existing routes and outlines as provisional v0 scaffolding, not final creative truth. Do not draft sample scenes from provisional scaffolding unless the user explicitly confirms they want to bypass the corpus readiness gate.
+
 ## Writing style
 
 - Use clear Markdown headings.
