@@ -45,6 +45,19 @@ This repository is for a private long-form novel ending lab and author-style con
 - For the current milestone, prioritize high-quality ending outlines over full final chapters.
 - Do not expand the UI unless the user explicitly asks for UI work.
 
+
+## Dragon Raja / Long Zu experiment workspace
+
+Before generating any ending route for the *Dragon Raja / Long Zu* experiment, first check these workspace files:
+
+- `experiments/longzu/01_story_overview.md`
+- `experiments/longzu/02_character_cards.md`
+- `experiments/longzu/05_unresolved_threads.md`
+- `experiments/longzu/07_author_style_bible.md`
+- `experiments/longzu/08_ending_preferences.md`
+
+Do not draft final chapters yet. Use these files to preserve the outline-first workflow, user preferences, story continuity, unresolved thread tracking, and style consistency before route generation.
+
 ## Writing style
 
 - Use clear Markdown headings.

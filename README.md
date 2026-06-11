@@ -35,6 +35,26 @@ The current priority is:
 The UI is secondary. Do not expand the app UI for the current milestone. The core is multi-ending planning, style consistency, story continuity, and emotional core preservation.
 
 
+
+## Dragon Raja / Long Zu Experiment Workspace
+
+The `experiments/longzu/` folder is the first concrete experiment area for *Dragon Raja / Long Zu*. It is the working space for building the story bible, author style bible, unresolved thread list, ending route candidates, and consistency review notes before any final chapter drafting begins.
+
+Use this workspace to keep the experiment outline-first:
+
+- `01_story_overview.md` captures the overall story structure, current plot state, major conflicts, emotional core, and ending questions.
+- `02_character_cards.md` stores major character cards and unresolved character arcs.
+- `03_relationship_map.md` maps emotional, symbolic, and conflict relationships.
+- `04_worldbuilding_rules.md` tracks mythology, faction rules, bloodline constraints, contradictions, and ending implications.
+- `05_unresolved_threads.md` separates must-resolve, should-resolve, open, emotional, worldbuilding, character, and mystery threads.
+- `06_foreshadowing_list.md` connects setups to possible ending payoffs.
+- `07_author_style_bible.md` records the mixed target style model for route generation and later expansion.
+- `08_ending_preferences.md` records user preferences about closure, tragedy, epic scale, open resonance, emotional compensation, and hybrid direction.
+- `09_ending_route_candidates.md` stores multiple base and hybrid ending route placeholders.
+- `10_consistency_review_notes.md` stores later story, character, timeline, worldbuilding, emotional-core, and style review notes.
+
+Do not use this workspace to draft final chapters yet. Its current purpose is structured analysis, route planning, comparison, hybridization, and review preparation.
+
 ## Data Template Layer
 
 The `data_templates/` folder contains reusable structured containers for the *Dragon Raja / Long Zu* multi-ending experiment. These templates keep analysis, planning, route design, outline expansion, and review in separate documents so the project does not collapse into a one-shot continuation draft.
