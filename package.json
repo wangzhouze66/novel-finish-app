@@ -1,0 +1,13 @@
+{
+  "name": "novel-finish-app",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "corpus:index": "tsx novel-ending-lab/scripts/ingest/scan_corpus.ts"
+  },
+  "devDependencies": {
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  }
+}
