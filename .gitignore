@@ -18,3 +18,7 @@ novel-ending-lab/raw_corpus/**
 *.7z
 *.rar
 *.zip
+
+# Generated target chapter splits may contain private/copyrighted corpus text.
+novel-ending-lab/parsed/target_chapters/chapters_index.md
+novel-ending-lab/parsed/target_chapters/[0-9][0-9][0-9]_*.md
