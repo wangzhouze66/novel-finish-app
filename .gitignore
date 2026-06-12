@@ -1,9 +1,16 @@
+node_modules/
 local_raw_corpus/
 raw_corpus/
 copyrighted_texts/
 novel-ending-lab/local_raw_corpus/
-novel-ending-lab/raw_corpus/
 novel-ending-lab/copyrighted_texts/
+
+# Keep raw corpus directory documentation and placeholders in Git, but never commit corpus files.
+novel-ending-lab/raw_corpus/**
+!novel-ending-lab/raw_corpus/
+!novel-ending-lab/raw_corpus/**/
+!novel-ending-lab/raw_corpus/**/README.md
+
 *.epub
 *.mobi
 *.azw3
