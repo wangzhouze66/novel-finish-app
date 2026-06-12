@@ -4,7 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "corpus:index": "node novel-ending-lab/scripts/ingest/scan_corpus.ts"
+    "corpus:index": "node novel-ending-lab/scripts/ingest/scan_corpus.ts",
+    "corpus:split": "tsx novel-ending-lab/scripts/parse/split_chapters.ts"
   },
   "devDependencies": {
     "tsx": "^4.20.6",
