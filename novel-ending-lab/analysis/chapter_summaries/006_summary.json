@@ -1,0 +1,30 @@
+{
+  "chapter_title": "固定分块 06",
+  "chapter_summary": "Mock 摘要：已从 raw_corpus/target_novel/txt80.com龙族5悼亡者归来.txt 的 50000-60000 位置读取本章内容，等待接入 OpenAI API 后生成正式分析。",
+  "important_events": [
+    "Mock：本章关键事件待模型分析。"
+  ],
+  "characters_appeared": [
+    "Mock：人物列表待模型分析。"
+  ],
+  "character_changes": [
+    "Mock：人物变化待模型分析。"
+  ],
+  "worldbuilding_info": [
+    "Mock：世界观信息待模型分析。"
+  ],
+  "new_clues": [
+    "Mock：新线索待模型分析。"
+  ],
+  "unresolved_threads": [
+    "Mock：未解问题待模型分析。"
+  ],
+  "foreshadowing": [
+    "Mock：伏笔待模型分析。"
+  ],
+  "emotional_tone": "Mock：情绪基调待模型分析。",
+  "style_notes": [
+    "Mock：已验证章节文本可读取，文本开头约 40 个字符未写入摘要文件。"
+  ],
+  "ending_hook": "Mock：终局钩子待模型分析。"
+}
