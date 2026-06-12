@@ -6,7 +6,8 @@
   "scripts": {
     "corpus:index": "node novel-ending-lab/scripts/ingest/scan_corpus.ts",
     "corpus:split": "node novel-ending-lab/scripts/parse/split_chapters.ts",
-    "chapters:summarize": "tsx novel-ending-lab/scripts/analyze/summarize_chapters.ts"
+    "chapters:summarize": "tsx novel-ending-lab/scripts/analyze/summarize_chapters.ts",
+    "analysis:build": "tsx novel-ending-lab/scripts/analyze/build_dragon_analysis.ts"
   },
   "devDependencies": {
     "tsx": "^4.20.6",
