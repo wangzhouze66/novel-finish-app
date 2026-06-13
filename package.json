@@ -11,7 +11,8 @@
     "ending:options": "tsx novel-ending-lab/scripts/generate/generate_ending_options.ts",
     "ending:outline": "tsx novel-ending-lab/scripts/generate/generate_ending_outline.ts",
     "ending:chapter": "tsx novel-ending-lab/scripts/generate/generate_ending_chapter.ts",
-    "mvp:run": "tsx novel-ending-lab/scripts/run_mvp_pipeline.ts"
+    "mvp:run": "tsx novel-ending-lab/scripts/run_mvp_pipeline.ts",
+    "sample:chapter": "tsx novel-ending-lab/scripts/generate/generate_real_sample_chapter.ts"
   },
   "devDependencies": {
     "tsx": "^4.20.6",
