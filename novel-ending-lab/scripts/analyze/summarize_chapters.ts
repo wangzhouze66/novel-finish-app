@@ -34,7 +34,19 @@ const promptPath = path.join(labRoot, 'prompts', '01_summarize_chapter.md');
 const outputDir = path.join(labRoot, 'analysis', 'chapter_summaries');
 const errorDir = path.join(outputDir, 'errors');
 const defaultChapterLimit = 10;
-const openAiModel = process.env.OPENAI_MODEL ?? 'gpt-4o-mini';
+type ModelProvider = 'openai' | 'deepseek';
+
+interface ProviderConfig {
+  provider: ModelProvider | 'mock';
+  apiKey?: string;
+  baseUrl?: string;
+  model?: string;
+}
+
+const defaultOpenAiModel = 'gpt-4o-mini';
+const defaultOpenAiBaseUrl = 'https://api.openai.com';
+const defaultDeepSeekModel = 'deepseek-v4-flash';
+const defaultDeepSeekBaseUrl = 'https://api.deepseek.com';
 
 function toPosixPath(value: string): string {
   return value.split(path.sep).join('/');
@@ -151,7 +163,7 @@ function makeMockSummary(record: ChapterIndexRecord, chapterText: string): Chapt
   const previewLength = Math.min(Array.from(chapterText).length, 40);
   return {
     chapter_title: record.title,
-    chapter_summary: `Mock 摘要：已从 ${record.sourceFile} 的 ${record.startOffset}-${record.endOffset} 位置读取本章内容，等待设置 OPENAI_API_KEY 后生成正式 OpenAI API 分析。`,
+    chapter_summary: `Mock 摘要：已从 ${record.sourceFile} 的 ${record.startOffset}-${record.endOffset} 位置读取本章内容，等待配置模型供应商 API key 后生成正式模型分析。`,
     important_events: ['Mock：本章关键事件待模型分析。'],
     characters_appeared: ['Mock：人物列表待模型分析。'],
     character_changes: ['Mock：人物变化待模型分析。'],
@@ -163,6 +175,66 @@ function makeMockSummary(record: ChapterIndexRecord, chapterText: string): Chapt
     style_notes: [`Mock：已验证章节文本可读取，文本开头约 ${previewLength} 个字符未写入摘要文件。`],
     ending_hook: 'Mock：终局钩子待模型分析。',
   };
+}
+
+function normalizeBaseUrl(value: string): string {
+  return value.replace(/\/+$/g, '');
+}
+
+function getProviderConfig(): ProviderConfig {
+  const rawProvider = process.env.MODEL_PROVIDER?.trim().toLowerCase();
+  const hasOpenAiKey = Boolean(process.env.OPENAI_API_KEY);
+  const hasDeepSeekKey = Boolean(process.env.DEEPSEEK_API_KEY);
+
+  if (rawProvider && rawProvider !== 'openai' && rawProvider !== 'deepseek') {
+    throw new Error(`Unsupported MODEL_PROVIDER "${rawProvider}". Use "openai" or "deepseek".`);
+  }
+
+  if (rawProvider === 'openai') {
+    if (!process.env.OPENAI_API_KEY) {
+      throw new Error('MODEL_PROVIDER=openai requires OPENAI_API_KEY. Refusing to silently fall back to mock mode.');
+    }
+
+    return {
+      provider: 'openai',
+      apiKey: process.env.OPENAI_API_KEY,
+      baseUrl: normalizeBaseUrl(defaultOpenAiBaseUrl),
+      model: process.env.OPENAI_MODEL ?? defaultOpenAiModel,
+    };
+  }
+
+  if (rawProvider === 'deepseek') {
+    if (!process.env.DEEPSEEK_API_KEY) {
+      throw new Error('MODEL_PROVIDER=deepseek requires DEEPSEEK_API_KEY. Refusing to silently fall back to mock mode.');
+    }
+
+    return {
+      provider: 'deepseek',
+      apiKey: process.env.DEEPSEEK_API_KEY,
+      baseUrl: normalizeBaseUrl(process.env.DEEPSEEK_BASE_URL ?? defaultDeepSeekBaseUrl),
+      model: process.env.DEEPSEEK_MODEL ?? defaultDeepSeekModel,
+    };
+  }
+
+  if (hasOpenAiKey) {
+    return {
+      provider: 'openai',
+      apiKey: process.env.OPENAI_API_KEY,
+      baseUrl: normalizeBaseUrl(defaultOpenAiBaseUrl),
+      model: process.env.OPENAI_MODEL ?? defaultOpenAiModel,
+    };
+  }
+
+  if (hasDeepSeekKey) {
+    return {
+      provider: 'deepseek',
+      apiKey: process.env.DEEPSEEK_API_KEY,
+      baseUrl: normalizeBaseUrl(process.env.DEEPSEEK_BASE_URL ?? defaultDeepSeekBaseUrl),
+      model: process.env.DEEPSEEK_MODEL ?? defaultDeepSeekModel,
+    };
+  }
+
+  return { provider: 'mock' };
 }
 
 function extractJsonObject(text: string): string {
@@ -183,16 +255,16 @@ function extractJsonObject(text: string): string {
     return trimmed.slice(firstBrace, lastBrace + 1);
   }
 
-  throw new Error('OpenAI response did not contain a JSON object.');
+  throw new Error('Model response did not contain a JSON object.');
 }
 
-function parseOpenAiSummary(content: string, fallbackTitle: string): ChapterSummary {
+function parseModelSummary(content: string, fallbackTitle: string): ChapterSummary {
   try {
     const jsonText = extractJsonObject(content);
     return normalizeSummary(JSON.parse(jsonText) as Partial<ChapterSummary>, fallbackTitle);
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
-    throw new Error(`OpenAI response could not be parsed as JSON: ${message}. Response excerpt: ${content.slice(0, 1000)}`);
+    throw new Error(`Model response could not be parsed as JSON: ${message}. Response excerpt: ${content.slice(0, 1000)}`);
   }
 }
 
@@ -207,20 +279,23 @@ function makeUserPayload(record: ChapterIndexRecord, chapterText: string): Recor
   };
 }
 
-async function createOpenAiSummary(record: ChapterIndexRecord, chapterText: string, prompt: string): Promise<ChapterSummary> {
-  const apiKey = process.env.OPENAI_API_KEY;
-  if (!apiKey) {
+async function createModelSummary(record: ChapterIndexRecord, chapterText: string, prompt: string, config: ProviderConfig): Promise<ChapterSummary> {
+  if (config.provider === 'mock') {
     return makeMockSummary(record, chapterText);
   }
 
-  const response = await fetch('https://api.openai.com/v1/chat/completions', {
+  if (!config.apiKey || !config.baseUrl || !config.model) {
+    throw new Error(`Provider ${config.provider} is missing required runtime configuration.`);
+  }
+
+  const response = await fetch(`${config.baseUrl}/v1/chat/completions`, {
     method: 'POST',
     headers: {
-      Authorization: `Bearer ${apiKey}`,
+      Authorization: `Bearer ${config.apiKey}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      model: openAiModel,
+      model: config.model,
       temperature: 0.2,
       response_format: { type: 'json_object' },
       messages: [
@@ -232,16 +307,16 @@ async function createOpenAiSummary(record: ChapterIndexRecord, chapterText: stri
 
   if (!response.ok) {
     const errorText = await response.text();
-    throw new Error(`OpenAI request failed with ${response.status}: ${errorText.slice(0, 2000)}`);
+    throw new Error(`${config.provider} request failed with ${response.status}: ${errorText.slice(0, 2000)}`);
   }
 
   const data = (await response.json()) as { choices?: Array<{ message?: { content?: string } }> };
   const content = data.choices?.[0]?.message?.content;
   if (!content) {
-    throw new Error('OpenAI response did not include message content.');
+    throw new Error(`${config.provider} response did not include message content.`);
   }
 
-  return parseOpenAiSummary(content, record.title);
+  return parseModelSummary(content, record.title);
 }
 
 async function writeErrorLog(record: ChapterIndexRecord, error: unknown): Promise<void> {
@@ -278,12 +353,13 @@ async function main(): Promise<void> {
     return;
   }
 
-  const useMockMode = !process.env.OPENAI_API_KEY;
+  const providerConfig = getProviderConfig();
+  const useMockMode = providerConfig.provider === 'mock';
 
   if (useMockMode) {
-    console.log('OPENAI_API_KEY is not set; generating mock chapter summary JSON files.');
+    console.log('No MODEL_PROVIDER or API key configured; generating mock chapter summary JSON files.');
   } else {
-    console.log(`OPENAI_API_KEY is set; generating real summaries with OpenAI model ${openAiModel}.`);
+    console.log(`MODEL_PROVIDER=${providerConfig.provider}; generating real summaries with model ${providerConfig.model}.`);
   }
 
   const sourceCache = new Map<string, string>();
@@ -310,7 +386,7 @@ async function main(): Promise<void> {
       }
 
       const chapterText = sliceChapterText(sourceContent, record);
-      const summary = await createOpenAiSummary(record, chapterText, prompt);
+      const summary = await createModelSummary(record, chapterText, prompt, providerConfig);
 
       const existedBeforeWrite = await fileExists(outputPath);
       await writeFile(outputPath, `${JSON.stringify(summary, null, 2)}\n`, 'utf8');
