@@ -9,7 +9,8 @@
     "chapters:summarize": "tsx novel-ending-lab/scripts/analyze/summarize_chapters.ts",
     "analysis:build": "tsx novel-ending-lab/scripts/analyze/build_dragon_analysis.ts",
     "ending:options": "tsx novel-ending-lab/scripts/generate/generate_ending_options.ts",
-    "ending:outline": "tsx novel-ending-lab/scripts/generate/generate_ending_outline.ts"
+    "ending:outline": "tsx novel-ending-lab/scripts/generate/generate_ending_outline.ts",
+    "ending:chapter": "tsx novel-ending-lab/scripts/generate/generate_ending_chapter.ts"
   },
   "devDependencies": {
     "tsx": "^4.20.6",
