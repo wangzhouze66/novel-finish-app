@@ -23,7 +23,7 @@ Why this exists: the ending experiment should not jump from outline directly int
 
 ## 2. Required input packet
 
-Before drafting, the user or agent must provide the following packet.
+Before drafting, the user or agent must provide the following packet. If the user has not selected a scene yet, do **not** draft immediately; first generate three scene方案 for selection as described in Section 2.1.
 
 | Field | Required content | Why it matters |
 | --- | --- | --- |
@@ -41,6 +41,30 @@ Before drafting, the user or agent must provide the following packet.
 Do not draft if any required field is missing. Ask for the missing fields or infer only with an explicit note that the inference must be confirmed before prose generation.
 
 ---
+
+## 2.1 Two-step scene selection gate
+
+When the user asks for a sample scene but has not selected an exact scene, the agent must use this two-step process:
+
+### Step 1: Generate 3 scene方案
+
+Output exactly three scene方案 before any prose drafting. Each方案 must stay inside the existing route, chapter, scene outline, character cards, style bible, unresolved-thread list, and story/worldbuilding records.
+
+For each方案, include:
+
+- **方案编号与标题**：short Chinese title.
+- **对应章节 / 场景锚点**：which existing chapter or scene outline it draws from.
+- **出场人物 / 象征性在场**：only characters or presences already supported by the workspace materials.
+- **场景功能**：what one job this sample tests.
+- **情绪落点**：the intended emotional turn or aftertaste.
+- **可用低影响过渡细节**：weather, gesture, room furnishing, or brief dialogue that does not affect canon, route logic, or worldbuilding.
+- **禁止新增内容检查**：confirm that it adds no new major lore, route mechanics, key props, organizations, places, relatives, seals, or main-plot facts.
+
+After presenting the three方案, stop and ask the user to choose one方案 before drafting. Do not include Draft v0 in the same response unless the user had already selected one of the方案.
+
+### Step 2: Draft only after selection
+
+After the user selects one方案, run the required context check, complete the pre-draft alignment summary, then write only one controlled `Draft v0` scene. If the selection requires facts that are not present in the workspace materials, ask for confirmation or revise the方案 instead of inventing major continuity.
 
 ## 3. Required context files
 
@@ -95,6 +119,27 @@ Do not begin Draft v0 until this alignment summary is complete.
 
 ---
 
+## 4.1 No-new-major-setting rule
+
+Unless the provided workspace materials explicitly contain the item, do **not** add any of the following:
+
+- new dragon species or dragon categories;
+- new organizations, factions, or institutional bodies;
+- new named locations;
+- new artifacts, relics, sacred objects, or unique weapons;
+- new historical events;
+- new bargain, contract, exchange, succession, or transaction rules;
+- new family relationships or bloodline kinship claims;
+- new seals, bindings, suppressions, or metaphysical locks;
+- new keys, documents, archives, warehouses, vaults, files, or other key-prop containers.
+
+If a transition detail is necessary for scene completeness, only add **low-impact details** such as weather, a physical action, room furnishing, a pause, or brief dialogue. These details must not alter worldbuilding, route logic, character backstory, institutional structure, or the main plot.
+
+Before Draft v0, explicitly state whether the chosen方案 requires any invented detail. If it does, classify it as either:
+
+- **Allowed low-impact transition detail**; or
+- **Not allowed major setting / continuity addition**, which must be removed or sent back to the user for confirmation.
+
 ## 5. Drafting rules
 
 Draft v0 must follow these rules:
@@ -111,6 +156,8 @@ Draft v0 must follow these rules:
 - Let large conflict appear through personal choice rather than abstract lore summary.
 - Keep the scene's ending open enough to create aftertaste, not so open that the scene has no function.
 - Do not introduce new major route logic unless the selected outline already requires it.
+- Do not introduce new major setting elements listed in Section 4.1 unless the workspace materials explicitly support them.
+- Use only low-impact transition details when a scene needs connective tissue, and keep those details non-canonical until reviewed.
 - Do not resolve unrelated unresolved threads merely because they are mentioned.
 
 Why this exists: Draft v0 should test whether the chosen outline can become living scene material without breaking continuity or collapsing into explanation.
@@ -179,7 +226,7 @@ If a selected scene includes only some of these characters, fill cards only for 
 
 ## 8. Output format for future sample scene drafting
 
-A future drafting response using this template must output the following sections in order:
+A future drafting response using this template must output the following sections in order after the user has selected one方案. If no方案 has been selected, output only `Step 1: 3 scene方案` and wait for selection.
 
 ### A. Scene alignment summary
 
