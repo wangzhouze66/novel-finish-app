@@ -8,7 +8,8 @@
     "corpus:split": "node novel-ending-lab/scripts/parse/split_chapters.ts",
     "chapters:summarize": "tsx novel-ending-lab/scripts/analyze/summarize_chapters.ts",
     "analysis:build": "tsx novel-ending-lab/scripts/analyze/build_dragon_analysis.ts",
-    "ending:options": "tsx novel-ending-lab/scripts/generate/generate_ending_options.ts"
+    "ending:options": "tsx novel-ending-lab/scripts/generate/generate_ending_options.ts",
+    "ending:outline": "tsx novel-ending-lab/scripts/generate/generate_ending_outline.ts"
   },
   "devDependencies": {
     "tsx": "^4.20.6",
