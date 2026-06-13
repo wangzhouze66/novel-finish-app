@@ -20,7 +20,7 @@ Review order:
 
 1. Check style and emotional rhythm.
 2. Check character voice and decision logic.
-3. Check continuity, thread recovery, and route alignment.
+3. Check continuity, thread recovery, route alignment, and no-new-major-setting compliance.
 4. Score the scene or chapter.
 5. Mark it as **pass**, **revise**, or **reject and replan**.
 
@@ -122,6 +122,8 @@ Use this checklist to protect the hybrid route from contradiction or accidental 
 | Timeline consistency | Events follow the final-volume phase order: return wound, gathering routes, revelation pressure, route selection, final conflict, aftermath resonance. | A scene uses information, emotional closure, or institutional outcome before the route has earned it. |
 | Chapter placement | The scene's function matches its chapter and phase. | A chapter tries to do the work of a later revelation, climax, or aftermath beat too early. |
 | Worldbuilding consistency | Memory erasure, witness continuity, dragon succession, faction control, and empty-throne logic follow the current route rules. | Rules shift for convenience, victory, romance, or spectacle. |
+| No-new-major-setting compliance | No new dragon categories, organizations, named places, artifacts, historical events, bargain rules, family ties, seals, or key-prop containers appear unless the workspace materials explicitly support them. | A draft invents major lore, route mechanics, key props, institutions, places, kinship, or main-plot facts for convenience. |
+| Low-impact transition details only | Any invented connective detail is limited to weather, gesture, room furnishing, pause, or brief dialogue that does not change canon, route logic, or worldbuilding. | A connective detail creates new continuity, explains a mystery, changes institutional structure, or affects the main plot. |
 | Unresolved thread handling | Must-resolve threads receive decision, cost, or emotional closure; partial threads are marked as partial; resonant threads remain intentionally open. | A must-resolve thread is ignored, or an open thread feels forgotten rather than deliberately resonant. |
 | Foreshadowing payoff | Prior images, objects, names, roads, phones, empty seats, rain, and records return with changed meaning. | A payoff appears without setup, or setup never returns in a meaningful form. |
 | Relationship continuity | Lu Mingfei/Nono, Lu Mingfei/Lu Mingze, Chu/Odin, Caesar/Gattuso, Anjou/old war, and Erii's legacy retain their established boundaries. | Relationships reset, become too clean, or turn into reward/punishment mechanics. |
@@ -158,6 +160,7 @@ Copy this form for every scene before approving it for drafting or expansion.
 - **Style score:** [1-10]
 - **Story score:** [1-10]
 - **Revision needed:** [none / minor / major / reject and replan]
+- **Invented detail check:** [none / low-impact only / unsupported major addition]
 - **Reviewer notes:**
 ```
 
@@ -218,9 +221,10 @@ If any red flag appears, pause drafting and revise the outline first.
 5. **Emotional preaching:** The theme is explained directly instead of carried by image, choice, silence, or cost.
 6. **Character OOC:** A character acts against core voice to create romance, victory, exposition, or melodrama.
 7. **Worldbuilding contradiction:** Memory, witness, succession, faction, or dragon rules change only to make the scene easier.
-8. **Rushed closure:** A major wound is solved in one conversation, one victory, one hug, one confession, or one explanation.
-9. **No aftertaste:** The scene ends cleanly without lingering image, regret, silence, altered object, or emotional question.
-10. **Action without emotional cost:** Combat, chase, or spectacle leaves no absence, fatigue, changed relationship, or ordinary detail made strange.
+8. **Unsupported major addition:** The scene adds a new dragon category, organization, named place, artifact, history event, bargain rule, family relationship, seal, key, file, archive, warehouse, or other key-prop container not explicitly present in the workspace materials.
+9. **Rushed closure:** A major wound is solved in one conversation, one victory, one hug, one confession, or one explanation.
+10. **No aftertaste:** The scene ends cleanly without lingering image, regret, silence, altered object, or emotional question.
+11. **Action without emotional cost:** Combat, chase, or spectacle leaves no absence, fatigue, changed relationship, or ordinary detail made strange.
 
 Red-flag Chinese shorthand: `爽文胜利、廉价悲剧、谜题讲完、人物走样、没有余味。`
 
