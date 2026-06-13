@@ -1,6 +1,6 @@
 {
   "chapter_title": "固定分块 05",
-  "chapter_summary": "Mock 摘要：已从 raw_corpus/target_novel/txt80.com龙族5悼亡者归来.txt 的 40000-50000 位置读取本章内容，等待接入 OpenAI API 后生成正式分析。",
+  "chapter_summary": "Mock 摘要：已从 raw_corpus/target_novel/txt80.com龙族5悼亡者归来.txt 的 40000-50000 位置读取本章内容，等待设置 OPENAI_API_KEY 后生成正式 OpenAI API 分析。",
   "important_events": [
     "Mock：本章关键事件待模型分析。"
   ],

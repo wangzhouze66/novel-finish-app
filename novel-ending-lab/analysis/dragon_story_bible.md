@@ -14,16 +14,16 @@
 
 | 章节 | 摘要要点 | 结尾钩子 |
 | --- | --- | --- |
-| 第 001 章：固定分块 01 | Mock 摘要：已从 raw_corpus/target_novel/txt80.com龙族5悼亡者归来.txt 的 0-10000 位置读取本章内容，等待接入 OpenAI API 后生成正式分析。 | Mock：终局钩子待模型分析。 |
-| 第 002 章：固定分块 02 | Mock 摘要：已从 raw_corpus/target_novel/txt80.com龙族5悼亡者归来.txt 的 10000-20000 位置读取本章内容，等待接入 OpenAI API 后生成正式分析。 | Mock：终局钩子待模型分析。 |
-| 第 003 章：固定分块 03 | Mock 摘要：已从 raw_corpus/target_novel/txt80.com龙族5悼亡者归来.txt 的 20000-30000 位置读取本章内容，等待接入 OpenAI API 后生成正式分析。 | Mock：终局钩子待模型分析。 |
-| 第 004 章：固定分块 04 | Mock 摘要：已从 raw_corpus/target_novel/txt80.com龙族5悼亡者归来.txt 的 30000-40000 位置读取本章内容，等待接入 OpenAI API 后生成正式分析。 | Mock：终局钩子待模型分析。 |
-| 第 005 章：固定分块 05 | Mock 摘要：已从 raw_corpus/target_novel/txt80.com龙族5悼亡者归来.txt 的 40000-50000 位置读取本章内容，等待接入 OpenAI API 后生成正式分析。 | Mock：终局钩子待模型分析。 |
-| 第 006 章：固定分块 06 | Mock 摘要：已从 raw_corpus/target_novel/txt80.com龙族5悼亡者归来.txt 的 50000-60000 位置读取本章内容，等待接入 OpenAI API 后生成正式分析。 | Mock：终局钩子待模型分析。 |
-| 第 007 章：固定分块 07 | Mock 摘要：已从 raw_corpus/target_novel/txt80.com龙族5悼亡者归来.txt 的 60000-70000 位置读取本章内容，等待接入 OpenAI API 后生成正式分析。 | Mock：终局钩子待模型分析。 |
-| 第 008 章：固定分块 08 | Mock 摘要：已从 raw_corpus/target_novel/txt80.com龙族5悼亡者归来.txt 的 70000-80000 位置读取本章内容，等待接入 OpenAI API 后生成正式分析。 | Mock：终局钩子待模型分析。 |
-| 第 009 章：固定分块 09 | Mock 摘要：已从 raw_corpus/target_novel/txt80.com龙族5悼亡者归来.txt 的 80000-90000 位置读取本章内容，等待接入 OpenAI API 后生成正式分析。 | Mock：终局钩子待模型分析。 |
-| 第 010 章：固定分块 10 | Mock 摘要：已从 raw_corpus/target_novel/txt80.com龙族5悼亡者归来.txt 的 90000-100000 位置读取本章内容，等待接入 OpenAI API 后生成正式分析。 | Mock：终局钩子待模型分析。 |
+| 第 001 章：固定分块 01 | Mock 摘要：已从 raw_corpus/target_novel/txt80.com龙族5悼亡者归来.txt 的 0-10000 位置读取本章内容，等待设置 OPENAI_API_KEY 后生成正式 OpenAI API 分析。 | Mock：终局钩子待模型分析。 |
+| 第 002 章：固定分块 02 | Mock 摘要：已从 raw_corpus/target_novel/txt80.com龙族5悼亡者归来.txt 的 10000-20000 位置读取本章内容，等待设置 OPENAI_API_KEY 后生成正式 OpenAI API 分析。 | Mock：终局钩子待模型分析。 |
+| 第 003 章：固定分块 03 | Mock 摘要：已从 raw_corpus/target_novel/txt80.com龙族5悼亡者归来.txt 的 20000-30000 位置读取本章内容，等待设置 OPENAI_API_KEY 后生成正式 OpenAI API 分析。 | Mock：终局钩子待模型分析。 |
+| 第 004 章：固定分块 04 | Mock 摘要：已从 raw_corpus/target_novel/txt80.com龙族5悼亡者归来.txt 的 30000-40000 位置读取本章内容，等待设置 OPENAI_API_KEY 后生成正式 OpenAI API 分析。 | Mock：终局钩子待模型分析。 |
+| 第 005 章：固定分块 05 | Mock 摘要：已从 raw_corpus/target_novel/txt80.com龙族5悼亡者归来.txt 的 40000-50000 位置读取本章内容，等待设置 OPENAI_API_KEY 后生成正式 OpenAI API 分析。 | Mock：终局钩子待模型分析。 |
+| 第 006 章：固定分块 06 | Mock 摘要：已从 raw_corpus/target_novel/txt80.com龙族5悼亡者归来.txt 的 50000-60000 位置读取本章内容，等待设置 OPENAI_API_KEY 后生成正式 OpenAI API 分析。 | Mock：终局钩子待模型分析。 |
+| 第 007 章：固定分块 07 | Mock 摘要：已从 raw_corpus/target_novel/txt80.com龙族5悼亡者归来.txt 的 60000-70000 位置读取本章内容，等待设置 OPENAI_API_KEY 后生成正式 OpenAI API 分析。 | Mock：终局钩子待模型分析。 |
+| 第 008 章：固定分块 08 | Mock 摘要：已从 raw_corpus/target_novel/txt80.com龙族5悼亡者归来.txt 的 70000-80000 位置读取本章内容，等待设置 OPENAI_API_KEY 后生成正式 OpenAI API 分析。 | Mock：终局钩子待模型分析。 |
+| 第 009 章：固定分块 09 | Mock 摘要：已从 raw_corpus/target_novel/txt80.com龙族5悼亡者归来.txt 的 80000-90000 位置读取本章内容，等待设置 OPENAI_API_KEY 后生成正式 OpenAI API 分析。 | Mock：终局钩子待模型分析。 |
+| 第 010 章：固定分块 10 | Mock 摘要：已从 raw_corpus/target_novel/txt80.com龙族5悼亡者归来.txt 的 90000-100000 位置读取本章内容，等待设置 OPENAI_API_KEY 后生成正式 OpenAI API 分析。 | Mock：终局钩子待模型分析。 |
 
 ## 人物出现汇总
 
