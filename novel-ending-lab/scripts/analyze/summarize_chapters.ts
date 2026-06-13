@@ -278,7 +278,9 @@ async function main(): Promise<void> {
     return;
   }
 
-  if (!process.env.OPENAI_API_KEY) {
+  const useMockMode = !process.env.OPENAI_API_KEY;
+
+  if (useMockMode) {
     console.log('OPENAI_API_KEY is not set; generating mock chapter summary JSON files.');
   } else {
     console.log(`OPENAI_API_KEY is set; generating real summaries with OpenAI model ${openAiModel}.`);
@@ -293,7 +295,7 @@ async function main(): Promise<void> {
     const outputPath = path.join(outputDir, summaryFileName(record.sequence));
     const relativeOutputPath = toPosixPath(path.relative(repoRoot, outputPath));
 
-    if (await fileExists(outputPath)) {
+    if (!useMockMode && (await fileExists(outputPath))) {
       skippedCount += 1;
       console.log(`Skipped existing summary: ${relativeOutputPath}`);
       continue;
@@ -310,9 +312,10 @@ async function main(): Promise<void> {
       const chapterText = sliceChapterText(sourceContent, record);
       const summary = await createOpenAiSummary(record, chapterText, prompt);
 
+      const existedBeforeWrite = await fileExists(outputPath);
       await writeFile(outputPath, `${JSON.stringify(summary, null, 2)}\n`, 'utf8');
       createdCount += 1;
-      console.log(`Wrote summary: ${relativeOutputPath}`);
+      console.log(`${existedBeforeWrite ? 'Updated' : 'Wrote'} summary: ${relativeOutputPath}`);
     } catch (error) {
       failedCount += 1;
       await writeErrorLog(record, error);
